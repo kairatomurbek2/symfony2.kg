@@ -1,0 +1,7 @@
+project_my:
+    resource: "@ProjectMyBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+
