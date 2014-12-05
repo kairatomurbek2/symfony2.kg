@@ -47,7 +47,7 @@ class Task
     protected $createdAt;
 
     /**
-     * @ORM\Column(name="finish_at", type="datetime")
+     * @ORM\Column(name="finish_at", type="datetime", nullable=true)
      */
 
     protected $finishAt;
@@ -66,10 +66,10 @@ class Task
     /**
      * Set title
      *
-     * @param \String $title
+     * @param string $title
      * @return Task
      */
-    public function setTitle(\string $title)
+    public function setTitle($title)
     {
         $this->title = $title;
 
