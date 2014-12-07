@@ -37,6 +37,6 @@ class DefaultController extends Controller
         $em->persist($task);
         $em->flush();
 
-        return new JsonResponse(array('state'=>'success'));
+        return array($task => $task);
     }
 }
