@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ task.getTitle() }}</h1>
+
+    <p>{{ task.getDescription() }}</p>
+
+    <small>Запись создана {{ task.getCreatedAt().format("Y-m-d H:i:s") }}</small>
+        <hr/>
+    <a href="{{ path('list') }}">
+        Назад к списку
+    </a>
+{% endblock %}
+
+

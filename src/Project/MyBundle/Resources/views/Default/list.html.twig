@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    {% for task in tasks %}
+    <li><a href="{{path('showTask',{'id':task.Id }) }} ">{{ task.Title }} </a></li>
+</ul>
+{% endfor %}
+
+</body>
+</html>
