@@ -7,7 +7,7 @@
 
     <small>Запись создана {{ task.getCreatedAt().format("Y-m-d H:i:s") }}</small>
         <hr/>
-    <a href="{{ path('list') }}">
+    <a href="{{ path('list') }}" class="btn btn-success">
         Назад к списку
     </a>
 {% endblock %}
