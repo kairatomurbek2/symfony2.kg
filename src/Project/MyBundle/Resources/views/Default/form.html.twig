@@ -4,7 +4,9 @@
     <h1>создание формы</h1>
     <form action="{{ path("add") }}" method="post">
         {{ form_widget(form) }}
-        <input type="submit" value="Create" class="btn btn-primary"/>
+        <button type="submit" value="Create" class="btn btn-success">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Создать
+        </button>
     </form>
 
 {% endblock %}

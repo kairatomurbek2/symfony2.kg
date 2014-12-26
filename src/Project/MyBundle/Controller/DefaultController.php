@@ -40,8 +40,6 @@ class DefaultController extends Controller
         ));
     }
 
-
-
     /**
      * @Route("/show/{id}", name="showTask")
      * @Template()
