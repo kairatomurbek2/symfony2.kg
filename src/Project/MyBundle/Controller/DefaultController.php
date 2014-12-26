@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -22,23 +23,23 @@ class DefaultController extends Controller
     }
 
     /**
-         * @Route("/create")
+     * @Route("/add", name="add")
+     * @Template()
      */
 
-    public function createAction(){
+    public function addAction(Request $request){
         $task = new Task();
-        $task->setTitle('A Foo Bar');
-        $task->setDescription('Kayrat');
-        $task->setStatus(false);
-        $task->setCreatedAt(new \DateTime());
-        $task->setFinishAt(null);
+        $form = $this->createFormBuilder($task)
+            ->add('title', 'text')
+            ->add('description', 'text')
+            ->add('createdAt', 'date')
+            ->getForm();
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($task);
-        $em->flush();
-
-        return new Response('Created product id ' . $task->getId());
+        return $this->render('ProjectMyBundle:Default:form.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
+
 
 
     /**

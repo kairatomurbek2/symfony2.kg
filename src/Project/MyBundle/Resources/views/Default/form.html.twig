@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+{% block title %}Forms!{% endblock %}
+{% block body %}
+    <h1>создание формы</h1>
+    <form action="{{ path("add") }}" method="post">
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" class="btn btn-primary"/>
+    </form>
+
+{% endblock %}
