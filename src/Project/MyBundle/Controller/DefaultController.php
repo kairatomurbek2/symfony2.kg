@@ -35,10 +35,17 @@ class DefaultController extends Controller
             ->add('createdAt', 'date')
             ->getForm();
 
-        return $this->render('ProjectMyBundle:Default:form.html.twig', array(
+        if ($request->getMethod() == 'POST'){
+            $form->handleRequest($request);
+            if ($form->isValid()){
+                return $this->redirect($this->generateUrl('add'));
+            }
+        }
+         return $this->render('ProjectMyBundle:Default:form.html.twig', array(
             'form' => $form->createView(),
         ));
     }
+
 
     /**
      * @Route("/show/{id}", name="showTask")
